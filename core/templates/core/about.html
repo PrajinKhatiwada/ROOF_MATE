@@ -42,9 +42,11 @@
         <div class="row g-5 align-items-center">
             <div class="col-lg-6">
                 <div class="about-image-wrap">
-                    <img class="rounded-5 shadow-lg"
-                        src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80"
-                        alt="Professional roof painting service">
+                    {% load static %}
+
+<img class="rounded-5 shadow-lg about-main-image"
+     src="{% static 'core/images/about.jpg' %}"
+     alt="Professional roof painting and cleaning service">
                     <div class="image-badge badge-top">
                         <span>Roofmate Promise</span>
                         <strong>Clean finishes. Better protection. Easy communication.</strong>

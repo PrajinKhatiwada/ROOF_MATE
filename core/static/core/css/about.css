@@ -6,12 +6,15 @@
     position: relative;
     padding: 125px 0 72px;
     overflow: hidden;
-    background:
-        linear-gradient(135deg, rgba(8, 16, 30, 0.94), rgba(17, 28, 48, 0.9)),
-        url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
     color: #fff;
 }
-
+.about-main-image {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+    border-radius: 28px;
+    display: block;
+}
 .inner-hero::before {
     content: "";
     position: absolute;
