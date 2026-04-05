@@ -1,0 +1,65 @@
+{% extends 'core/base.html' %}
+{% block content %}
+<section class="inner-hero">
+    <div class="container">
+        <div class="section-tag">Contact Roofmate</div>
+        <h1 class="inner-title">Request a quote for roof painting, repairs, pressure cleaning or driveway work.</h1>
+        <p class="inner-text">This page includes a Django-powered enquiry form that stores submissions in the database.</p>
+    </div>
+</section>
+
+<section class="section-space bg-soft">
+    <div class="container">
+        <div class="row g-4 align-items-start">
+            <div class="col-lg-5">
+                <div class="contact-panel h-100">
+                    <h3>Let's talk about your project</h3>
+                    <p>Tell us about your roof type, suburb and the service you need. Roofmate can then follow up with a tailored response.</p>
+                    <div class="contact-info-list mt-4">
+                        <div><i class="bi bi-telephone"></i><span>07 3000 0000</span></div>
+                        <div><i class="bi bi-envelope"></i><span>hello@roofmate.com.au</span></div>
+                        <div><i class="bi bi-geo-alt"></i><span>Brisbane, Queensland</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="contact-card p-4 p-lg-5">
+                    <h3 class="mb-4">Send an enquiry</h3>
+                    <form method="post" action="{% url 'submit_enquiry' %}" class="row g-3">
+                        {% csrf_token %}
+                        <div class="col-md-6">
+                            <input type="text" name="full_name" class="form-control" placeholder="Full Name" required>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" name="phone" class="form-control" placeholder="Phone Number" required>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="email" name="email" class="form-control" placeholder="Email Address" required>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" name="suburb" class="form-control" placeholder="Suburb" required>
+                        </div>
+                        <div class="col-12">
+                            <select name="service" class="form-select" required>
+                                <option value="">Select Service</option>
+                                <option value="Metal Roof Painting">Metal Roof Painting</option>
+                                <option value="Tile Roof Painting">Tile Roof Painting</option>
+                                <option value="Roof Repairs">Roof Repairs</option>
+                                <option value="Roof Pressure Cleaning">Roof Pressure Cleaning</option>
+                                <option value="Driveway Painting">Driveway Painting</option>
+                                <option value="Driveway Cleaning">Driveway Cleaning</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <textarea name="message" class="form-control" placeholder="Tell us about your project" rows="6" required></textarea>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-warning btn-lg px-4" type="submit">Submit Enquiry</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

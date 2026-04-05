@@ -1,0 +1,56 @@
+{% extends 'core/base.html' %}
+{% block content %}
+<section class="inner-hero blog-hero">
+    <div class="container">
+        <div class="section-tag">Roofmate Blog</div>
+        <h1 class="inner-title">Helpful blog articles for roof painting, cleaning and maintenance.</h1>
+        <p class="inner-text">A dedicated blog page helps the site look more professional and content-rich.</p>
+    </div>
+</section>
+
+<section class="section-space blog-page-section">
+    <div class="container">
+        <div class="row g-4">
+            {% for post in blogs %}
+            <div class="col-md-6 d-flex">
+                <article class="blog-card h-100 blog-card-large w-100">
+                    {% if post.image %}
+                    <a href="{% url 'blog_detail' post.slug %}" class="blog-thumb-wrap">
+                        <div class="blog-thumb">
+                            <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                        </div>
+                    </a>
+                    {% endif %}
+
+                    <div class="blog-meta mb-3">
+                        <i class="bi bi-clock"></i>
+                        <span>{{ post.read_time }}</span>
+                    </div>
+
+                    <h4>{{ post.title }}</h4>
+                    
+
+                    <div class="blog-card-footer mt-auto d-flex flex-wrap justify-content-between align-items-center gap-3">
+                        <div class="mini-note">
+                            <i class="bi bi-calendar3"></i>
+                            <span>{{ post.published_at|date:'d M Y' }}</span>
+                        </div>
+
+                        <a href="{% url 'blog_detail' post.slug %}" class="btn btn-warning blog-view-btn">
+                            <i class="bi bi-arrow-right-circle me-2"></i>View Article
+                        </a>
+                    </div>
+                </article>
+            </div>
+            {% empty %}
+            <div class="col-12">
+                <div class="blog-empty-state text-center">
+                    <h4>No blog posts yet</h4>
+                    <p>Add blog posts from Django admin to show them here.</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

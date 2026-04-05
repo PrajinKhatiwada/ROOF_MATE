@@ -1,0 +1,37 @@
+{% extends 'core/base.html' %}
+{% block content %}
+<section class="inner-hero">
+    <div class="container">
+        <div class="section-tag">Our Projects</div>
+        <h1 class="inner-title">Browse sample roof and driveway transformations.</h1>
+        <p class="inner-text">A dedicated projects page gives the website a more complete and professional structure.</p>
+    </div>
+</section>
+
+<section class="section-space">
+    <div class="container">
+        <div class="row g-4">
+            {% for project in all_projects %}
+            <div class="col-md-6 col-xl-4">
+                <div class="project-card h-100">
+                    <img src="{{ project.image.url }}" alt="{{ project.title }}">
+                    <div class="p-4">
+                        <div class="project-badge mb-3">{{ project.category }}</div>
+                        <h4>{{ project.title }}</h4>
+                        <div class="project-location mb-2"><i class="bi bi-geo-alt"></i> {{ project.suburb }}</div>
+                        <p>{{ project.summary }}</p>
+                        {% if project.created_at %}
+                        <div class="mini-note mt-3"><i class="bi bi-calendar3"></i> {{ project.created_at|date:'d M Y' }}</div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center">
+                <p class="section-text mb-0">Add projects from Django admin.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

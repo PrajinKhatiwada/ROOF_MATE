@@ -1,0 +1,93 @@
+{% extends 'core/base.html' %}
+{% block content %}
+<section class="inner-hero blog-hero">
+    <div class="container">
+        <div class="section-tag">Roofmate Blog</div>
+        <h1 class="inner-title">{{ post.title }}</h1>
+
+        <div class="blog-detail-meta mt-3">
+            <span class="blog-meta-pill">
+                <i class="bi bi-calendar3"></i>
+                {{ post.published_at|date:'d M Y' }}
+            </span>
+            <span class="blog-meta-pill">
+                <i class="bi bi-clock"></i>
+                {{ post.read_time }}
+            </span>
+        </div>
+    </div>
+</section>
+
+<section class="section-space blog-page-section">
+    <div class="container">
+        <div class="blog-detail-wrap">
+            {% if post.image %}
+            <div class="blog-detail-image">
+                <img src="{{ post.image.url }}" alt="{{ post.title }}">
+            </div>
+            {% endif %}
+
+            <div class="blog-detail-card">
+                <div class="blog-detail-content">
+                    {{ post.content|linebreaks }}
+                </div>
+            </div>
+
+            <div class="blog-detail-actions mt-4 d-flex flex-wrap gap-3">
+                <a href="{% url 'blog' %}" class="btn btn-outline-dark rounded-pill px-4">
+                    <i class="bi bi-arrow-left me-2"></i>Back to Blog
+                </a>
+                <a href="{% url 'contact' %}" class="btn btn-warning rounded-pill px-4">
+                    <i class="bi bi-clipboard-check me-2"></i>Request Quote
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% if recent_posts %}
+<section class="section-space bg-soft">
+    <div class="container">
+        <div class="section-heading mx-auto text-center">
+            <div class="section-tag justify-content-center">More Articles</div>
+            <h2 class="section-title">Recent blog posts</h2>
+        </div>
+
+        <div class="row g-4 mt-4">
+            {% for item in recent_posts %}
+            <div class="col-md-6 col-xl-4 d-flex">
+                <article class="blog-card h-100 w-100">
+                    {% if item.image %}
+                    <a href="{% url 'blog_detail' item.slug %}" class="blog-thumb-wrap">
+                        <div class="blog-thumb">
+                            <img src="{{ item.image.url }}" alt="{{ item.title }}">
+                        </div>
+                    </a>
+                    {% endif %}
+
+                    <div class="blog-meta mb-3">
+                        <i class="bi bi-clock"></i>
+                        <span>{{ item.read_time }}</span>
+                    </div>
+
+                    <h4>{{ item.title }}</h4>
+                    
+
+                    <div class="blog-card-footer mt-auto d-flex flex-wrap justify-content-between align-items-center gap-3">
+                        <div class="mini-note">
+                            <i class="bi bi-calendar3"></i>
+                            <span>{{ item.published_at|date:'d M Y' }}</span>
+                        </div>
+
+                        <a href="{% url 'blog_detail' item.slug %}" class="btn btn-warning blog-view-btn">
+                            <i class="bi bi-arrow-right-circle me-2"></i>View Article
+                        </a>
+                    </div>
+                </article>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,187 @@
+{% extends 'core/base.html' %}
+{% block content %}
+<header class="hero-section">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-7">
+                <div class="hero-badge"><i class="bi bi-stars"></i> Brisbane Roof Care Specialists</div>
+                <h1 class="display-4 fw-bold mt-4 mb-3">Beautiful roof transformations for <span>metal roofs, tile roofs, driveways and exterior surfaces.</span></h1>
+                <p class="hero-text mb-4">Roofmate helps Brisbane property owners improve street appeal with premium roof painting, roof repairs, roof pressure cleaning, driveway painting and driveway cleaning.</p>
+                <div class="d-flex flex-wrap gap-3 mb-4">
+                    <a href="{% url 'contact' %}" class="btn btn-warning btn-lg px-4">Request Free Quote</a>
+                    <a href="{% url 'projects' %}" class="btn btn-outline-light btn-lg px-4">See Our Projects</a>
+                </div>
+                <div class="hero-points row g-3">
+                    <div class="col-sm-4"><div class="glass-card text-center"><h3>Clean</h3><p>Driveway and roof washing</p></div></div>
+                    <div class="col-sm-4"><div class="glass-card text-center"><h3>Metal</h3><p>Roof painting and restoration</p></div></div>
+                    <div class="col-sm-4"><div class="glass-card text-center"><h3>Tile</h3><p>Roof repairs and coatings</p></div></div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="hero-visual">
+                    <div class="hero-floating-card card-one">
+                        <i class="bi bi-house-check"></i>
+                        <div><strong>Roof Painting</strong><span>Metal & tile roofs</span></div>
+                    </div>
+                    <div class="hero-floating-card card-two">
+                        <i class="bi bi-droplet-half"></i>
+                        <div><strong>Pressure Cleaning</strong><span>Roofs & driveways</span></div>
+                    </div>
+                    <div class="hero-main-image">
+                        <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80" alt="Roofmate hero roof image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="service-strip py-4">
+    <div class="container">
+        <div class="row g-3 text-center">
+            <div class="col-6 col-lg"><div class="service-pill">Roof Pressure Cleaning</div></div>
+            <div class="col-6 col-lg"><div class="service-pill">Roof Repairs</div></div>
+            <div class="col-6 col-lg"><div class="service-pill">Metal Roof Painting</div></div>
+            <div class="col-6 col-lg"><div class="service-pill">Tile Roof Painting</div></div>
+            <div class="col-12 col-lg"><div class="service-pill">Driveway Painting & Cleaning</div></div>
+        </div>
+    </div>
+</section>
+
+<section class="section-space">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <div class="section-tag">About Us</div>
+                <h2 class="section-title">Roofmate is built for homeowners who want a cleaner, stronger and more professional-looking property.</h2>
+                <p class="section-text">We focus on practical workmanship and premium presentation. From rusted metal roofs to tired tiled roofs and stained driveways, our team helps properties look fresh, protected and well maintained.</p>
+                <div class="row g-3 mt-3">
+                    <div class="col-sm-6"><div class="feature-box h-100"><i class="bi bi-shield-check"></i><h5>Protection first</h5><p>Preparation, repairs and coatings that improve appearance and durability.</p></div></div>
+                    <div class="col-sm-6"><div class="feature-box h-100"><i class="bi bi-brush"></i><h5>Detail driven</h5><p>Every project is planned with surface type, condition and finish quality in mind.</p></div></div>
+                </div>
+                <a href="{% url 'about' %}" class="btn btn-dark mt-4 px-4">More About Us</a>
+            </div>
+            <div class="col-lg-6">
+                <div class="about-visual">
+                    <div class="about-card top-card"><span>Our Services</span><strong>Roof painting, repairs, pressure cleaning and driveway care</strong></div>
+                    <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80" alt="About Roofmate">
+                    <div class="about-card bottom-card"><span>Why clients choose us</span><strong>Clean design, trusted presentation and easy enquiry flow</strong></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-space bg-soft">
+    <div class="container">
+        <div class="text-center mx-auto section-heading">
+            <div class="section-tag justify-content-center">What We Do</div>
+            <h2 class="section-title">Complete roof and driveway care under one brand</h2>
+        </div>
+        <div class="row g-4 mt-4">
+            <div class="col-md-6 col-xl-4"><div class="service-card h-100"><i class="bi bi-water"></i><h4>Roof Pressure Cleaning</h4><p>Remove grime, moss and surface build-up before restoration or repainting.</p></div></div>
+            <div class="col-md-6 col-xl-4"><div class="service-card h-100"><i class="bi bi-tools"></i><h4>Roof Repairs</h4><p>Leaks, cracks, ridge cap issues and general roof problem solving for better performance.</p></div></div>
+            <div class="col-md-6 col-xl-4"><div class="service-card h-100"><i class="bi bi-house-up"></i><h4>Metal Roof Painting</h4><p>Surface prep, rust treatment, priming and coating systems for corrugated and metal roofs.</p></div></div>
+            <div class="col-md-6 col-xl-4"><div class="service-card h-100"><i class="bi bi-grid-3x3-gap"></i><h4>Tile Roof Painting</h4><p>Tile replacement, repointing and premium paint systems to revive tired roofs.</p></div></div>
+            <div class="col-md-6 col-xl-4"><div class="service-card h-100"><i class="bi bi-car-front"></i><h4>Driveway Painting & Cleaning</h4><p>Street-appeal upgrades using pressure washing and exterior-grade protective coatings.</p></div></div>
+        </div>
+    </div>
+</section>
+
+<section class="section-space">
+    <div class="container">
+        <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4">
+            <div>
+                <div class="section-tag">Our Projects</div>
+                <h2 class="section-title mb-0">Recent project highlights</h2>
+            </div>
+            <a href="{% url 'projects' %}" class="btn btn-outline-dark px-4">View All Projects</a>
+        </div>
+        <div class="row g-4">
+            {% for project in projects %}
+            <div class="col-md-6 col-xl-4">
+                <div class="project-card h-100">
+                    <img src="{{ project.image.url }}" alt="{{ project.title }}">
+                    <div class="p-4">
+                        <div class="project-badge mb-3">{{ project.category }}</div>
+                        <h4>{{ project.title }}</h4>
+                        <div class="project-location mb-2"><i class="bi bi-geo-alt"></i> {{ project.suburb }}</div>
+                        <p>{{ project.summary }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="section-space bg-soft">
+    <div class="container">
+        <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4">
+            <div>
+                <div class="section-tag">Gallery</div>
+                <h2 class="section-title mb-0">Visual examples of Roofmate work</h2>
+            </div>
+            <a href="{% url 'gallery' %}" class="btn btn-outline-dark px-4">Open Gallery</a>
+        </div>
+        <div class="row g-4">
+            {% for item in gallery_items|slice:':4' %}
+            <div class="col-sm-6 col-xl-3">
+                <div class="gallery-card h-100">
+                    <img src="{{ item.image.url }}" alt="{{ item.title }}">
+                    <div class="gallery-overlay"><span>{{ item.category }}</span><h5>{{ item.title }}</h5></div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="section-space">
+    <div class="container">
+        <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4">
+            <div>
+                <div class="section-tag">Blog</div>
+                <h2 class="section-title mb-0">Helpful roofing and maintenance tips</h2>
+            </div>
+            <a href="{% url 'blog' %}" class="btn btn-outline-dark px-4">Read More Articles</a>
+        </div>
+        <div class="row g-4">
+            {% for post in featured_blogs %}
+            <div class="col-md-6 col-xl-4">
+                <div class="blog-card h-100">
+                    {% if post.image %}
+                    <div class="blog-thumb mb-3">
+                        <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                    </div>
+                    {% endif %}
+                    <div class="blog-meta mb-3"><i class="bi bi-clock"></i> {{ post.read_time }}</div>
+                    <h4>{{ post.title }}</h4>
+                   
+                    <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mt-3">
+                        <div class="mini-note"><i class="bi bi-calendar3"></i> {{ post.published_at|date:'d M Y' }}</div>
+                        <a href="{% url 'blog_detail' post.slug %}" class="btn btn-warning blog-view-btn">
+                            <i class="bi bi-arrow-right-circle me-2"></i> View Article
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="cta-band section-space-sm">
+    <div class="container">
+        <div class="row align-items-center g-4">
+            <div class="col-lg-8">
+                <h2 class="mb-2">Ready to improve your roof or driveway?</h2>
+                <p>Send a quick enquiry and we will get back to you about your project.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <a href="{% url 'contact' %}" class="btn btn-warning btn-lg px-4">Get Free Quote</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

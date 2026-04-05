@@ -1,0 +1,130 @@
+{% extends 'core/base.html' %}
+{% block content %}
+<section class="inner-hero">
+    <div class="container">
+        <div class="section-tag">Gallery</div>
+        <h1 class="inner-title">A visual gallery for roof painting, repairs and exterior cleaning work.</h1>
+        <p class="inner-text">Explore project images, compare before and after results, and filter work by service type.</p>
+    </div>
+</section>
+
+<section class="section-space bg-soft">
+    <div class="container">
+        <div class="gallery-toolbar">
+            <div class="filter-group">
+                <button class="filter-btn active" data-filter="all" type="button">All</button>
+                <button class="filter-btn" data-filter="metal" type="button">Metal</button>
+                <button class="filter-btn" data-filter="tile" type="button">Tile</button>
+                <button class="filter-btn" data-filter="driveway" type="button">Driveway</button>
+            </div>
+        </div>
+
+        <div class="gallery-grid">
+            {% for item in gallery_items %}
+            <div class="gallery-card"
+                 data-category="{{ item.category|lower }}"
+                 data-title="{{ item.title }}"
+                 data-image="{{ item.image.url }}">
+                <img src="{{ item.image.url }}" alt="{{ item.title }}">
+                <div class="gallery-overlay">
+                    <span>{{ item.category }}</span>
+                    <h5>{{ item.title }}</h5>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center">
+                <p class="section-text mb-0">Add gallery items from Django admin.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="section-space">
+    <div class="container">
+        <div class="text-center mx-auto section-heading">
+            <div class="section-tag justify-content-center">Before & After</div>
+            <h2 class="section-title">See the transformation quality</h2>
+            <p class="section-text">Interactive comparison sliders help visitors understand the difference Roofmate can make.</p>
+        </div>
+
+        <div class="row g-4 mt-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="ba-card">
+                    <div class="ba-media">
+                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80" alt="After roof painting" class="ba-after">
+                        <div class="ba-before-wrap" style="width:50%;">
+                            <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80" alt="Before roof painting" class="ba-before">
+                        </div>
+                        <div class="ba-divider" style="left:50%;">
+                            <span class="ba-handle"><i class="bi bi-arrows-move"></i></span>
+                        </div>
+                        <input type="range" class="ba-range" min="0" max="100" value="50">
+                        <div class="ba-label before-label">Before</div>
+                        <div class="ba-label after-label">After</div>
+                    </div>
+                    <div class="ba-content">
+                        <span class="ba-badge">Metal Roof</span>
+                        <h4>Roof Painting Refresh</h4>
+                        <p>Cleaned, prepared, treated and repainted for a sharper, longer-lasting finish.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="ba-card">
+                    <div class="ba-media">
+                        <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80" alt="After tile roof restoration" class="ba-after">
+                        <div class="ba-before-wrap" style="width:50%;">
+                            <img src="https://images.unsplash.com/photo-1512915922686-57c11dde9b6b?auto=format&fit=crop&w=1200&q=80" alt="Before tile roof restoration" class="ba-before">
+                        </div>
+                        <div class="ba-divider" style="left:50%;">
+                            <span class="ba-handle"><i class="bi bi-arrows-move"></i></span>
+                        </div>
+                        <input type="range" class="ba-range" min="0" max="100" value="50">
+                        <div class="ba-label before-label">Before</div>
+                        <div class="ba-label after-label">After</div>
+                    </div>
+                    <div class="ba-content">
+                        <span class="ba-badge">Tile Roof</span>
+                        <h4>Tile Roof Renewal</h4>
+                        <p>Ideal for showing the difference between weathered surfaces and final coated results.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="ba-card">
+                    <div class="ba-media">
+                        <img src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=1200&q=80" alt="After driveway cleaning" class="ba-after">
+                        <div class="ba-before-wrap" style="width:50%;">
+                            <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80" alt="Before driveway cleaning" class="ba-before">
+                        </div>
+                        <div class="ba-divider" style="left:50%;">
+                            <span class="ba-handle"><i class="bi bi-arrows-move"></i></span>
+                        </div>
+                        <input type="range" class="ba-range" min="0" max="100" value="50">
+                        <div class="ba-label before-label">Before</div>
+                        <div class="ba-label after-label">After</div>
+                    </div>
+                    <div class="ba-content">
+                        <span class="ba-badge">Driveway</span>
+                        <h4>Driveway Clean & Coat</h4>
+                        <p>Showcase street-appeal improvements through cleaning and protective surface finishing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="gallery-modal" id="galleryModal">
+    <button class="gallery-modal-close" id="galleryModalClose" type="button">
+        <i class="bi bi-x-lg"></i>
+    </button>
+    <div class="gallery-modal-content">
+        <img id="galleryModalImage" src="" alt="">
+        <div class="gallery-modal-caption" id="galleryModalCaption"></div>
+    </div>
+</div>
+{% endblock %}
